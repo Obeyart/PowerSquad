@@ -116,14 +116,19 @@ const Timeline: React.FC<TimelineProps> = ({
                       </div>
                       
                       {/* User Icon: Blue if Online, Gray if Offline */}
-                      <User 
-                        size={12} 
-                        className={isOnline ? "text-cyan-400" : "text-slate-500"} 
-                        title={isMe ? "Ви" : "Гравець"} 
-                      />
+                      <div title={isMe ? "Ви" : "Гравець"}>
+                        <User 
+                          size={12} 
+                          className={isOnline ? "text-cyan-400" : "text-slate-500"} 
+                        />
+                      </div>
                       
                       {/* Crown Icon only for Host */}
-                      {friend.isHost && <Crown size={12} className="text-yellow-500" title="Host" />}
+                      {friend.isHost && (
+                        <div title="Host">
+                            <Crown size={12} className="text-yellow-500" />
+                        </div>
+                      )}
                     </div>
                     <div className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
                       {isOnline ? (
